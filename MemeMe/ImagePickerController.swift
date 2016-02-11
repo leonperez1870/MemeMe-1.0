@@ -59,7 +59,7 @@ class ImagePickerController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        view.frame.origin.y == 0
+        view.frame.origin.y = 0
     }
     // End
     
