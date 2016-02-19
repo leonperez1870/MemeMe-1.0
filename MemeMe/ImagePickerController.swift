@@ -79,7 +79,7 @@ class ImagePickerController: UIViewController, UIImagePickerControllerDelegate, 
         simplify(true)
     }
     
-    // Testing purposes
+    // One Function To Rule Them Both
     func simplify(fromCamera: Bool) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
