@@ -71,21 +71,26 @@ class ImagePickerController: UIViewController, UIImagePickerControllerDelegate, 
 
     //Photo Gallery
     @IBAction func pickAnImage(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil)
+        simplify(false)
     }
     
     // Camera
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion: nil)
+        simplify(true)
     }
     
     // Testing purposes
+    func simplify(fromCamera: Bool) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        if fromCamera {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        imagePicker.allowsEditing = false
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
     
     // Text Attributes
     let memeTextAttributes = [
