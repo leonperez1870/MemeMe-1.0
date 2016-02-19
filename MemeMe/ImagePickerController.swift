@@ -19,7 +19,6 @@ class ImagePickerController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var navBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
-    
     // Load, Appear, Dissapear
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +85,8 @@ class ImagePickerController: UIViewController, UIImagePickerControllerDelegate, 
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    // Testing purposes
+    
     // Text Attributes
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -119,14 +120,12 @@ class ImagePickerController: UIViewController, UIImagePickerControllerDelegate, 
     
     // Generate Meme
     func generateMemedImage() -> UIImage {
-        toolBar.hidden = true
         navBar.hidden = true
         //Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        toolBar.hidden = false
         navBar.hidden = false
         return memedImage
     }
